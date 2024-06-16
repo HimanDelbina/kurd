@@ -10,6 +10,7 @@ urlpatterns = [
     path("api-auth", include("rest_framework.urls")),
     path("user/", include("user.urls")),
     path("movie/", include("movie.urls")),
+    path("music/", include("music.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
