@@ -28,19 +28,13 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ["name_kurd", "name_persian", "name_english"]
 
 
-class AwardsAdmin(admin.ModelAdmin):
-    fields = ["name_kurd", "name_persian", "name_english"]
-    list_display = ["name_kurd", "name_persian", "name_english"]
-    search_fields = ["name_kurd", "name_persian", "name_english"]
-
-
 class ProducerAdmin(admin.ModelAdmin):
     fields = ["name_kurd", "name_persian", "name_english"]
     list_display = ["name_kurd", "name_persian", "name_english"]
     search_fields = ["name_kurd", "name_persian", "name_english"]
 
 
-class MovieAdmin(admin.ModelAdmin):
+class MyShowAdmin(admin.ModelAdmin):
     fields = [
         "name_kurd",
         "name_persian",
@@ -75,7 +69,6 @@ class MovieAdmin(admin.ModelAdmin):
 admin.site.register(ActorModel, ActorAdmin)
 admin.site.register(GenreModel, GenreAdmin)
 admin.site.register(DirectorModel, DirectorAdmin)
-admin.site.register(MovieModel, MovieAdmin)
-admin.site.register(AwardsModel, AwardsAdmin)
+admin.site.register(MyShowModel, MyShowAdmin)
 admin.site.register(ProducerModel, ProducerAdmin)
 admin.site.register(CategoryModel, CategoryAdmin)

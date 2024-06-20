@@ -99,7 +99,7 @@ class ProducerModel(models.Model):
         return self.name_persian
 
 
-class MovieModel(models.Model):
+class MyShowModel(models.Model):
     name_kurd = models.CharField(max_length=100, verbose_name="نام فیلم کردی")
     name_persian = models.CharField(max_length=100, verbose_name="نام فیلم فارسی")
     name_english = models.CharField(max_length=100, verbose_name="نام فیلم انگلیسی")
@@ -110,9 +110,6 @@ class MovieModel(models.Model):
     )
     director = models.ForeignKey(
         DirectorModel, verbose_name="کارگردان", on_delete=models.CASCADE
-    )
-    award = models.ManyToManyField(
-        AwardsModel, verbose_name="جایزه ها ", null=True, blank=True
     )
     producer = models.ManyToManyField(ProducerModel, verbose_name="تهیه کننده ها ")
     kurd_date = models.CharField(verbose_name="تاریخ کردی", max_length=20)

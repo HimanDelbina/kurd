@@ -26,12 +26,6 @@ class CategorySerializers(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class AwardsSerializers(serializers.ModelSerializer):
-    class Meta:
-        model = AwardsModel
-        fields = "__all__"
-
-
 class ProducerSerializers(serializers.ModelSerializer):
     class Meta:
         model = ProducerModel
@@ -40,6 +34,6 @@ class ProducerSerializers(serializers.ModelSerializer):
 
 class MovieSerializers(serializers.ModelSerializer):
     class Meta:
-        model = MovieModel
+        model = MyShowModel
         fields = "__all__"
         depth = 1
