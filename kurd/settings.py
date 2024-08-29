@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "movie",
     "music",
     "myshow",
+    "toturial",
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ WSGI_APPLICATION = "kurd.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "kurd",
+        "NAME": "kurd_db",
         "USER": "postgres",
         "PASSWORD": "11193",
         "HOST": "localhost",
