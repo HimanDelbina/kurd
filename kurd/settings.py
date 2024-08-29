@@ -92,7 +92,7 @@ DATABASES = {
         "NAME": "kurd_db",
         "USER": "postgres",
         "PASSWORD": "11193",
-        "HOST": "localhost",
+        "HOST": "0.0.0.0",
         "PORT": "5432",
     }
 }
