@@ -1,17 +1,17 @@
 version: '3.8'
 
 services:
-  db:
-    container_name: database
-    image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 11193
-      POSTGRES_DB: kurd_db
-      ports: "5432:5432"
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    restart: always
+  # db:
+  #   container_name: database
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: 11193
+  #     POSTGRES_DB: kurd_db
+  #     ports: "5432:5432"
+  #   volumes:
+  #     - postgres:/var/lib/postgresql/data
+  #   restart: always
 
   app:
     build:
@@ -26,30 +26,30 @@ services:
       - .:/code
       - static:/usr/src/app/static
       - media:/usr/src/app/media
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     ports:
       - "8000:8000"
     environment:
       - DEBUG=False
       - ALLOWED_HOSTS=*
-      - DATABASE-NAME=kurd_db
-      - DATABASE-USER=postgres
-      - DATABASE-PASSWORD=11193
-      - DATABASE-HOST=db
-      - DATABASE-PORT=5432
+      # - DATABASE-NAME=kurd_db
+      # - DATABASE-USER=postgres
+      # - DATABASE-PASSWORD=11193
+      # - DATABASE-HOST=db
+      # - DATABASE-PORT=5432
 
-  nginx:
-    image: nginx
-    container_name: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - static:/var/www/static
-      - media:/var/www/media
+  # nginx:
+  #   image: nginx
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d
+  #     - static:/var/www/static
+  #     - media:/var/www/media
 
 volumes:
-  postgres:
+  # postgres:
   static:
   media:
