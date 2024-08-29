@@ -111,9 +111,7 @@ class MovieModel(models.Model):
     director = models.ForeignKey(
         DirectorModel, verbose_name="کارگردان", on_delete=models.CASCADE
     )
-    award = models.ManyToManyField(
-        AwardsModel, verbose_name="جایزه ها "
-    )
+    award = models.ManyToManyField(AwardsModel, verbose_name="جایزه ها ")
     producer = models.ManyToManyField(ProducerModel, verbose_name="تهیه کننده ها ")
     kurd_date = models.CharField(verbose_name="تاریخ کردی", max_length=20)
     persian_date = models.CharField(verbose_name="تاریخ فارسی", max_length=20)
