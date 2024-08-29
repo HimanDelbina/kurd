@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  database:
+  db:
     container_name: database
     image: postgres
     environment:
@@ -11,8 +11,7 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     restart: always
-  
-  
+
   app:
     build:
       context: .
@@ -23,20 +22,22 @@ services:
              python manage.py collectstatic --no-input --clear &&
              gunicorn kurd.wsgi:application --bind 0.0.0.0:8000"
     volumes:
+      - .:/code
       - static:/usr/src/app/static
       - media:/usr/src/app/media
     depends_on:
-      - database
+      - db
+    ports:
+      - "8000:8000"
     environment:
       - DEBUG=False
       - ALLOWED_HOSTS=*
       - DATABASE-NAME=kurd_db
       - DATABASE-USER=postgres
       - DATABASE-PASSWORD=11193
-      - DATABASE-HOST=database
+      - DATABASE-HOST=db
       - DATABASE-PORT=5432
-  
-  
+
   nginx:
     image: nginx
     container_name: nginx
