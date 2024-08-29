@@ -39,15 +39,15 @@ services:
       # - DATABASE-HOST=db
       # - DATABASE-PORT=5432
 
-  # nginx:
-  #   image: nginx
-  #   container_name: nginx
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - ./nginx:/etc/nginx/conf.d
-  #     - static:/var/www/static
-  #     - media:/var/www/media
+      # nginx:
+      #   image: nginx
+      #   container_name: nginx
+      #   ports:
+      #     - "80:80"
+      #   volumes:
+      #     - ./nginx:/etc/nginx/conf.d
+      #     - static:/var/www/static
+      #     - media:/var/www/media
 
 volumes:
   # postgres:
