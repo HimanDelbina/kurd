@@ -12,22 +12,30 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - app-network
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: ./wait-for-it.sh db:5432 -- python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     depends_on:
       - db
+    networks:
+      - app-network
     environment:
       - DEBUG=1
       - DJANGO_DB_HOST=db
-      - DJANGO_DB_NAME=postgres
+      - DJANGO_DB_NAME=kurd_db
       - DJANGO_DB_USER=postgres
       - DJANGO_DB_PASSWORD=11193
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   postgres_data:
