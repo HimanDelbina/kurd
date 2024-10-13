@@ -1,22 +1,20 @@
-# FROM python:3
-# ENV PYTHONUNBUFFERED=1
-# RUN mkdir /code
-# WORKDIR /code
-# COPY requirements.txt /code/
-# RUN pip install -r requirements.txt
-# COPY . /code/
+# از یک ایمیج پایتون استفاده کنید
+FROM python:3.9-slim
 
+# تنظیم دایرکتوری کاری
+WORKDIR /app
 
-FROM python:3
-
-WORKDIR /code
-
-COPY requirements.txt .
-
+# نصب وابستگی‌ها
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# کپی پروژه به داخل کانتینر
+COPY . /app/
 
+# اجرا کردن فرمان مهاجرت‌ها و استاتیک‌ها
+RUN python manage.py migrate
+RUN python manage.py collectstatic --noinput
+
+# تنظیم پورت و اجرای سرور
 EXPOSE 8000
-
-CMD ["python3", "manage.py", "runserver", "92.113.25.79:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
