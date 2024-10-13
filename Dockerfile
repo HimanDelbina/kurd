@@ -14,10 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # کپی پروژه به داخل کانتینر
 COPY . /app/
 
-# اجرا کردن فرمان مهاجرت‌ها و استاتیک‌ها
-RUN python manage.py migrate
-RUN python manage.py collectstatic --noinput
-
-# تنظیم پورت و اجرای سرور
+# تنظیم پورت
 EXPOSE 8000
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+# تنظیم CMD برای انجام مهاجرت‌ها و استاتیک‌ها در زمان اجرا
+CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"]
