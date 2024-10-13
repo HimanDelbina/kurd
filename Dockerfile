@@ -1,21 +1,16 @@
-# از یک ایمیج پایتون استفاده کنید
 FROM python:3.9-slim
 
-# تنظیم دایرکتوری کاری
+# Install PostgreSQL client
+RUN apt-get update && apt-get install -y \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# به‌روزرسانی pip
-RUN pip install --upgrade pip
-
-# نصب وابستگی‌ها
+# Copy requirements and install them
 COPY requirements.txt /app/
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# کپی پروژه به داخل کانتینر
+# Copy the rest of the application code
 COPY . /app/
-
-# تنظیم پورت
-EXPOSE 8000
-
-# تنظیم CMD برای انجام مهاجرت‌ها و استاتیک‌ها در زمان اجرا
-CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"]
