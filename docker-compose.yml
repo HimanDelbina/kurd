@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
     networks:
-      - app-network  # تغییر به app-network
+      - app-network  # Change this line to match the db network
     environment:
       - DEBUG=1
       - DJANGO_DB_HOST=db
