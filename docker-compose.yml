@@ -14,7 +14,7 @@ services:
       - app-network
   web:
     build: .
-    command: ./wait-for-it.sh db:5432 -- python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
@@ -22,7 +22,7 @@ services:
     depends_on:
       - db
     networks:
-      - app-network  # Change this line to match the db network
+      - app-network
     environment:
       - DEBUG=1
       - DJANGO_DB_HOST=db
