@@ -4,6 +4,9 @@ FROM python:3.9-slim
 # تنظیم دایرکتوری کاری
 WORKDIR /app
 
+# به‌روزرسانی pip
+RUN pip install --upgrade pip
+
 # نصب وابستگی‌ها
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
