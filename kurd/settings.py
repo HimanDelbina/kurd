@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "music",
     "myshow",
     "toturial",
+    "podcast",
 ]
 
 MIDDLEWARE = [
