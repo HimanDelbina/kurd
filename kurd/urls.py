@@ -13,6 +13,7 @@ urlpatterns = [
     path("music/", include("music.urls")),
     path("myshow/", include("myshow.urls")),
     path("toturial/", include("toturial.urls")),
+    path("podcast/", include("podcast.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
