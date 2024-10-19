@@ -27,8 +27,7 @@ def create_user(request):
     else:
         if users.is_valid():
             account = users.save()
-            data["first_name"] = account.first_name
-            data["last_name"] = account.last_name
+            data["username"] = account.username
             data["email"] = account.email
             data["password"] = account.password
             data["create_at"] = account.create_at
@@ -49,8 +48,7 @@ def login_user(request):
     if user is not None:
         token = MyOwnToken.objects.get(userTokens=user).key
         info["id"] = user.id
-        info["first_name"] = user.first_name
-        info["last_name"] = user.last_name
+        info["username"] = user.username
         info["email"] = user.email
         info["token"] = token
         return Response(info, status=status.HTTP_200_OK)
@@ -73,8 +71,7 @@ def delete_user_by_id(request, id):
 def edit_user(request):
     etid_data = request.data
     edit_data_find_in_database = UserModel.objects.get(id=etid_data["id"])
-    edit_data_find_in_database.first_name = etid_data["first_name"]
-    edit_data_find_in_database.last_name = etid_data["last_name"]
+    edit_data_find_in_database.username = etid_data["username"]
     edit_data_find_in_database.email = etid_data["email"]
     edit_data_find_in_database.password = etid_data["password"]
     edit_data_find_in_database.save()

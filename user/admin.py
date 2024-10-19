@@ -5,10 +5,9 @@ from .models import *
 
 
 class UserAdmin(admin.ModelAdmin):
-    fields = ["username",  "email", "password"]
+    fields = ["username", "email", "password"]
     list_display = ["username", "email"]
     search_fields = ["username", "email"]
-
 
 
 admin.site.register(UserModel, UserAdmin)
