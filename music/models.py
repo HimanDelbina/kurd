@@ -68,6 +68,9 @@ class MusicMp3Model(models.Model):
         upload_to=file_path,
         verbose_name="عکس موزیک",
     )
+    cast_kurdish = models.TextField(verbose_name="عوامل کردی", null=True, blank=True)
+    cast_persian = models.TextField(verbose_name="عوامل فارسی", null=True, blank=True)
+    cast_english = models.TextField(verbose_name="عوامل انگلیسی", null=True, blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
@@ -108,6 +111,9 @@ class MusicVideoModel(models.Model):
         upload_to=file_path,
         verbose_name="عکس موزیک",
     )
+    cast_kurdish = models.TextField(verbose_name="عوامل کردی", null=True, blank=True)
+    cast_persian = models.TextField(verbose_name="عوامل فارسی", null=True, blank=True)
+    cast_english = models.TextField(verbose_name="عوامل انگلیسی", null=True, blank=True)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 

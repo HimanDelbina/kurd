@@ -55,6 +55,9 @@ class MyShowAdmin(admin.ModelAdmin):
         "popularity_rate",
         "movie",
         "image",
+        "cast_kurdish",
+        "cast_persian",
+        "cast_english",
     ]
     list_display = [
         "name_persian",

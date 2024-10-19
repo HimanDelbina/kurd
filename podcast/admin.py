@@ -34,6 +34,9 @@ class PodcastAdmin(admin.ModelAdmin):
         "musictext_kurd",
         "musictext_persian",
         "musictext_english",
+        "cast_kurdish",
+        "cast_persian",
+        "cast_english",
         "image",
     ]
     list_display = ["name_persian", "persian_date"]
@@ -62,6 +65,9 @@ class PodcastVideoAdmin(admin.ModelAdmin):
         "compilation_persian",
         "compilation_english",
         "image",
+        "cast_kurdish",
+        "cast_persian",
+        "cast_english",
     ]
     list_display = ["name_persian", "persian_date"]
     search_fields = ["name_persian"]

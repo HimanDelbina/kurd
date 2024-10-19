@@ -29,6 +29,9 @@ class MusicMp3Admin(admin.ModelAdmin):
         "popularity_rate",
         "music",
         "image",
+        "cast_kurdish",
+        "cast_persian",
+        "cast_english",
     ]
     list_display = ["name_persian", "signer"]
     search_fields = ["name_kurd", "name_persian", "name_english"]
@@ -47,6 +50,9 @@ class MusicVideoAdmin(admin.ModelAdmin):
         "popularity_rate",
         "music",
         "image",
+        "cast_kurdish",
+        "cast_persian",
+        "cast_english",
     ]
     list_display = ["name_persian", "signer"]
     search_fields = ["name_kurd", "name_persian", "name_english"]
