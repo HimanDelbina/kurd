@@ -3,7 +3,6 @@ import os
 from django.utils.html import mark_safe
 
 
-
 def get_filename_ext(filepath):
     base_name = os.path.basename(filepath)
     name, ext = os.path.splitext(base_name)
@@ -38,8 +37,8 @@ class SingerPodcastModel(models.Model):
     name_english = models.CharField(max_length=100, verbose_name="نام گوینده انگلیسی")
 
     class Meta:
-        verbose_name = "نام خواننده"
-        verbose_name_plural = "نام خواننده"
+        verbose_name = "نام گوینده"
+        verbose_name_plural = "نام گوینده"
 
     def __str__(self):
         return self.name_persian
@@ -97,8 +96,6 @@ class PodcastModel(models.Model):
 
     def __str__(self):
         return self.name_persian
-
-
 
 
 class PodcastVideoModel(models.Model):
