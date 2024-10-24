@@ -43,7 +43,6 @@ class MyShowAdmin(admin.ModelAdmin):
         "genre",
         "category",
         "director",
-        "award",
         "producer",
         "kurd_date",
         "persian_date",
