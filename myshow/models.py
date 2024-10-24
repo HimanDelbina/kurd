@@ -113,7 +113,7 @@ class MyShowModel(models.Model):
     )
     producer = models.ManyToManyField(ProducerModel, verbose_name="تهیه کننده ها ")
     kurd_date = models.CharField(verbose_name="تاریخ کردی", max_length=20)
-    persian_date = models.CharField(verbose_nawardame="تاریخ فارسی", max_length=20)
+    persian_date = models.CharField(verbose_name="تاریخ فارسی", max_length=20)
     english_date = models.CharField(verbose_name="تاریخ انگلیسی", max_length=20)
     kurd_description = models.TextField(verbose_name="خلاصه فیلم کردی")
     persian_description = models.TextField(verbose_name="خلاصه فیلم فارسی")
